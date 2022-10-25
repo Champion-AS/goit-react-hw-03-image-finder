@@ -5,7 +5,7 @@ const params = {
     Key: '30101192-873c73f6b4dfe5f82ebfe07cf',
 }
 
-async function fetchImages(pege, inputDate) {
+async function fetchImages(page, inputDate) {
     const { Adress, Key } = params;
     const options = new URLSearchParams({
         key: Key,
@@ -26,7 +26,7 @@ async function fetchImages(pege, inputDate) {
 }
 
 fetchImages.propTypes = {
-    pege: PropTypes.number.isRequired,
+    page: PropTypes.number.isRequired,
     inputDate: PropTypes.string.isRequired,
 }
 

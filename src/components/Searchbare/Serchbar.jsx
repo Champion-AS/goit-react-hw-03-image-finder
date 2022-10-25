@@ -4,14 +4,16 @@ import { SearchForm } from '../SearchForm/SearchForm';
 
 export class SearchBar extends Component {
     render() {
-        return (
-            <header className='header'>
-                <SearchForm onSubmit={this.props.onSubmit} />
-            </header>                
-    )            
-}
+    return (
+      <header className="header">
+        <SearchForm onSub={this.props.onSub} />
+      </header>
+    );
+  }
 }
 
 SearchBar.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
+    onSub: PropTypes.func.isRequired,
 }
+
+export default SearchBar;

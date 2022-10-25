@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 
-export class ImageGallery extends Component {  
+export default class ImageGallery extends Component {  
 
    render() {
     const { inputData } = this.props;
@@ -19,10 +19,10 @@ export class ImageGallery extends Component {
 
 ImageGallery.propTypes = {
     inputData: PropTypes.arrayOf(
-      PropTypes.shape({
-        webformatURL: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-        tags: PropTypes.string.isRequired,
-        largeImageURL: PropTypes.string.isRequired,
-      }),
-}
+        PropTypes.shape({
+            webformatURL: PropTypes.string.isRequired,
+            id: PropTypes.number.isRequired,
+            tags: PropTypes.string.isRequired,
+            largeImageURL: PropTypes.string.isRequired,
+        }))
+};

@@ -16,7 +16,7 @@ export class SearchForm extends Component {
         e.preventDefault();
         const { input } = this.state;
 
-        if (input.trim === '') {
+        if (input.trim() === '') {
             return toast.warn('Enter search name!', {
         position: 'top-right',
         autoClose: 3000,
@@ -28,7 +28,7 @@ export class SearchForm extends Component {
       });
         }
 
-        this.props.onSubmit(input);
+        this.props.onSub(input);
     }
 
 
@@ -56,5 +56,5 @@ export class SearchForm extends Component {
 
 SearchForm.propTypes = {
     input: PropTypes.string,
-    onSubmit: PropTypes.func.isRequired,
+    onSub: PropTypes.func.isRequired,
 }

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 
-export class Button extends Component {
+export default class Button extends Component {
  
   onClickEvent = e => {
     this.props.handleClick(e);

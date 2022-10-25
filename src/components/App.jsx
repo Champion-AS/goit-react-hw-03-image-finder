@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ThreeCircles } from 'react-loader-spinner';
+import { ToastContainer } from 'react-toastify';
 
 
-
+import Button from './Button/Button'
 import FetchImages from './GalleryApi/GalleryApy'
 import SearchBar from './Searchbare/Serchbar'
 import ImageGallery from './ImageGallery/ImageGallery'
@@ -78,8 +79,9 @@ export class App extends Component {
             innerCircleColor=""
             middleCircleColor=""
           />
-        )}
-    
+      )}
+      {input && !loading && <Button handleClick={this.onClick} />}
+    <ToastContainer/>
     </>
     );
     }
