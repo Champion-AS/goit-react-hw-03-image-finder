@@ -28,16 +28,16 @@ export class App extends Component {
 
       FetchImages(page, input)
         .then(imgArr => {
-          if (input !== prevState.input) this.setState({ data: imgArr.hits });
+          if (input !== prevState.input) this.setState({ data: imgArr.hits, loading: false });
           else
             this.setState(prevState => {
               return {
-                data: [...prevState.data, ...imgArr.hits],
+                data: [...prevState.data, ...imgArr.hits], loading: false,
               };
             });
         })
-        .catch(error => console.log(error))
-        .finally(this.setState({ loading: false }));
+        .catch(error => { console.log(error); this.setState({ loading: false }) })
+       
       return;
     }
   }
@@ -65,12 +65,11 @@ export class App extends Component {
   return (
     <>
       <SearchBar onSub={this.onSubmit} />
-      {data && <ImageGallery inputData={data} />}
       {loading && (
           <ThreeCircles
             height="100"
             width="100"
-            color="#468645"
+            color="#2732ac"
             wrapperStyle={{}}
             wrapperClass="loader"
             visible={true}
@@ -79,7 +78,8 @@ export class App extends Component {
             innerCircleColor=""
             middleCircleColor=""
           />
-      )}
+       )} 
+      {data && <ImageGallery inputData={data} />}      
       {input && !loading && <Button handleClick={this.onClick} />}
     <ToastContainer/>
     </>

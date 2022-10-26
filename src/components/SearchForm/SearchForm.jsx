@@ -6,30 +6,31 @@ export class SearchForm extends Component {
     state = {
         input: '',
     }
-    handelInput = e => {
+
+    handleInput = e => {
     this.setState({
             input: e.target.value,
         });
     }
     
-    handelSubmit = e => { 
+    handleSubmit = e => {
         e.preventDefault();
         const { input } = this.state;
 
         if (input.trim() === '') {
             return toast.warn('Enter search name!', {
-        position: 'top-right',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+                position: 'top-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
 
         this.props.onSub(input);
-    }
+    };
 
 
     render() {
@@ -58,3 +59,5 @@ SearchForm.propTypes = {
     input: PropTypes.string,
     onSub: PropTypes.func.isRequired,
 }
+
+export default SearchForm;
